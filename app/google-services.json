@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "686386632864",
+    "firebase_url": "https://userdisplay-9bf61.firebaseio.com",
+    "project_id": "userdisplay-9bf61",
+    "storage_bucket": "userdisplay-9bf61.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686386632864:android:f6f782c2958389586691c5",
+        "android_client_info": {
+          "package_name": "learningcurve.zachg.userdisplay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "686386632864-dol070t5cemamh3mvgtqa4bpl12uj26k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDe3QPuev9nqEpn5d8Tw68oA1K7T0AXfJc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "686386632864-dol070t5cemamh3mvgtqa4bpl12uj26k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
