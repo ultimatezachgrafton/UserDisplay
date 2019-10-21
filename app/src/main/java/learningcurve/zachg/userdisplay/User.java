@@ -1,8 +1,11 @@
 package learningcurve.zachg.userdisplay;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
+import androidx.databinding.library.baseAdapters.BR;
 
-public class User {
+public class User extends BaseObservable {
 
     @NonNull
     private String id;
@@ -50,22 +53,22 @@ public class User {
 
     public void setId(String id) { this.id = id; }
 
-    //@Bindable
+    @Bindable
     public String getEmail() { return email; }
 
     public void setEmail(String email) {
         this.email = email;
-        //notifyPropertyChanged(BR.email);
+        notifyPropertyChanged((Integer) BR.email);
     }
 
-    //@Bindable
+    @Bindable
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
-        //notifyPropertyChanged(BR.password);
+        notifyPropertyChanged((Integer) BR.password);
     }
 
     public String getFirstName() {
@@ -80,8 +83,12 @@ public class User {
 
     public void setLastName(String lastName) { this.lastName = lastName; }
 
-    public void setClientName(String clientName) { this.clientName = clientName; }
+    public void setClientName(String clientName) {
+        this.clientName = clientName;
+        notifyPropertyChanged(BR.clientName);
+    }
 
+    @Bindable
     public String getClientName() { return clientName; }
 
     public String concatClientName() {

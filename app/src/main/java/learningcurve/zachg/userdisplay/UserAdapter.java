@@ -3,13 +3,14 @@ package learningcurve.zachg.userdisplay;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+
+import learningcurve.zachg.userdisplay.databinding.UserItemBinding;
 
 public class UserAdapter extends FirestoreRecyclerAdapter<User, UserAdapter.UserHolder> {
 
@@ -18,30 +19,32 @@ public class UserAdapter extends FirestoreRecyclerAdapter<User, UserAdapter.User
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull UserHolder holder, int position, @NonNull User model) {
-        holder.textViewTitle.setText(model.getClientName());
-        holder.textViewDescription.setText(model.getEmail());
+    protected void onBindViewHolder(@NonNull UserHolder holder, int position, @NonNull User user) {
+        //user = getItemForPosition(position);
+        holder.bind(user);
     }
 
     @NonNull
     @Override
     public UserHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_item,
-                parent, false);
-        return new UserHolder(v);
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        UserItemBinding binding = UserItemBinding.inflate(layoutInflater, parent, false);
+        return new UserHolder(binding);
     }
 
     class UserHolder extends RecyclerView.ViewHolder {
-        TextView textViewTitle;
-        TextView textViewDescription;
-        TextView textViewPriority;
+        private final UserItemBinding binding;
 
-        public UserHolder(View itemView) {
-            super(itemView);
-            textViewTitle = itemView.findViewById(R.id.text_view_title);
-            textViewDescription = itemView.findViewById(R.id.text_view_description);
-            textViewPriority = itemView.findViewById(R.id.text_view_priority);
+        public UserHolder(UserItemBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
         }
+
+        public void bind(User user) {
+            binding.setUser(user);
+            binding.executePendingBindings();
+        }
+
     }
 
 }
